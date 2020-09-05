@@ -1,0 +1,56 @@
+version: '3.6'
+
+services:
+  db:
+    environment:
+      POSTGRES_USER: postscript
+      POSTGRES_PASSWORD: dev
+      POSTGRES_DB: postscript
+    image: postgres:latest
+    networks:
+      - postscript
+    ports:
+      - 7000:5432
+    restart: always
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+  
+  api:
+    build: ./api
+    user: postscript
+    depends_on:
+      - db
+    environment:
+      STAGE: dev
+      SQLALCHEMY_DATABASE_URI: postgresql+psycopg2://postscript:dev@db:5432/postscript
+      SQLALCHEMY_TRACK_MODIFICATIONS: 0
+      TWILIO_ACCOUNT_SID : AC2d2e5c226ed2d55168fcc47a9cb4e[70],
+      TWILIO_AUTH_TOKEN : 33318111b49351d61b29252a60125[6b]
+      TWILIO_NUMBER: 18505476325[]
+    networks:
+      - postscript
+    ports:
+      - 5000:5000
+    volumes:
+      - ./api:/opt/api
+    restart: always
+
+  app:
+    build: ./app
+    user: postscript
+    depends_on:
+      - api
+    networks:
+      - postscript
+    ports:
+      - 3000:3000
+    stdin_open: true
+    volumes:
+      - ./app:/opt/app
+      - /opt/app/node_modules
+
+networks:
+  postscript:
+
+volumes:
+  postgres-data:

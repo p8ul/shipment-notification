@@ -1,0 +1,92 @@
+$sW: 50px;
+$sH: 50px;
+
+%btn {
+    width: $sW;
+    height: $sH;
+    color: white;
+    border: none;
+}
+
+.product-card {
+    :first-child {
+        padding-top: 0;
+    }
+
+    padding: 10px 0 10px 0;
+
+    &__wrapper {
+
+        border-bottom: 2px solid #e0e0e0;
+        border-radius: 4px;
+        display: flex;
+        justify-content: space-between;
+
+        a {
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        &__image {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            align-items: center;
+            padding: 10px 0;
+
+            &__detail {
+                white-space: nowrap;
+                overflow: hidden;
+
+
+                p {
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+
+            }
+
+            .img {
+                width: 50px;
+                height: 50px;
+                text-align: center;
+                margin-right: 10px;
+            }
+        }
+
+        &__message {
+
+            svg {
+
+                width: 25px;
+                height: 25px;
+
+            }
+
+            button {
+                @extend %btn;
+                user-select: none;
+                cursor: pointer;
+                background: #1462ff;
+                border-radius: 12px;
+                box-shadow: 0 6px 30px -10px rgba(#1462ff, 1);
+                overflow: hidden;
+                text-transform: uppercase;
+                line-height: 24px;
+                color: #ffffff;
+                position:
+                    relative;
+
+                &:hover {
+                    filter: brightness(0.9) contrast(1.2);
+                    transform: scale(0.96);
+                }
+            }
+        }
+
+
+    }
+}

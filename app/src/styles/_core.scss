@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: 'Muli', Arial, sans-serif;
+
+}
+
+h1 {
+    line-height: 1.2;
+    letter-spacing: 0;
+    color: $primary-color;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    text-transform: none;
+    border-bottom: 2px solid #000;
+    padding-bottom: 22px;
+
+}
+
+
+h4 {
+    line-height: 1.2;
+    letter-spacing: 0;
+    color: $primary-color;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    text-transform: none;
+    border-bottom: 2px solid $primary-color;
+    padding-bottom: 22px;
+}
+
+.container {
+    display: grid;
+    background-color: $bg-color;
+    grid-template-areas:
+        "header header header"
+        "nav content side"
+        "footer footer footer";
+
+    grid-template-columns: 25% 1fr 25%;
+    grid-template-rows: auto 1fr auto;
+    grid-gap: 10px;
+    height: 100vh;
+}
+
+header {
+    grid-area: header;
+    background-color: white;
+    padding: 1% 15%;
+}
+
+nav {
+    grid-area: nav;
+    margin-left: 0.5rem;
+}
+
+main {
+    grid-area: content;
+    box-shadow: $primary-box-shadow;
+    background-color: $white;
+
+    .main-content {
+        padding: 30px;
+        display: grid;
+        grid-template-areas: "products";
+        grid-template-rows: 1fr;
+        grid-gap: 20px;
+        height: 80vh;
+        overflow: scroll;
+
+        &__products {
+            grid-area: products;
+        }
+
+    }
+}
+
+.empty {
+    display: flex;
+    flex-direction: column;
+    height: 50vh;
+    justify-content: center;
+    align-items: center;
+
+    h3 {
+        color: $grey-color;
+        text-align: center;
+        text-transform: uppercase;
+        font-family: "Poppins", sans-serif;
+        line-height: 1.2;
+        letter-spacing: 0;
+        margin-bottom: 34px;
+    }
+
+    p {
+        color: $grey-color;
+        text-align: center;
+        font-family: "Poppins", sans-serif;
+        line-height: 1.2;
+        letter-spacing: 0;
+    }
+}
+
+.product-name {
+    border: none;
+}
+
+
+.error {
+    color: red;
+}
+
+.centered {
+    text-align: 'center';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+aside {
+    grid-area: side;
+    margin-right: 0.5rem;
+}
+
+footer {
+    grid-area: footer;
+}

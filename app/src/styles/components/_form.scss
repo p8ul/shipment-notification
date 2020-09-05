@@ -1,0 +1,41 @@
+textarea,
+input {
+    background: inherit;
+    border-color: #666;
+    border-style: solid;
+    border-width: 0 0 2px 0;
+    color: #666;
+    cursor: text;
+    font-size: 15px;
+    height: 24px;
+    line-height: 24px;
+    margin-top: 24px;
+    outline: 0;
+    overflow: hidden;
+    padding: 0 1px;
+    resize: none;
+    transition-property: border;
+    width: 100%;
+
+    &:active,
+    &:focus {
+        border-color: #007BED;
+    }
+}
+
+.phone-input {
+    .PhoneInputCountry {
+        margin-top: 23px;
+    }
+}
+
+.send-button,
+save-button {
+    background-color: #2362FF !important;
+    color: white !important;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+}
